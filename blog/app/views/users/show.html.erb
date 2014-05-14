@@ -1,0 +1,35 @@
+<% title @user.name %>
+
+<div class="site">
+	<div style="float: right;">
+		<% if user_signed_in? && current_user == @user %>
+		<%= link_to 'প্রোফাইল এডিট করুন', edit_user_registration_path, class: "button tiny" %>
+		<% end %>
+	</div>
+	<h2 style="color: #FFFFFF;"><%= image_tag avatar_url(@user), class: 'profile-picture' %>&nbsp;<%= @user.name %></h1>
+	<p><b>ই-মেইলঃ </b> <%= @user.email %></p>	
+</div>
+
+<div class="posts">
+	<% if user_signed_in? && current_user == @user %>
+		<h2>প্রিয় পোস্ট সমূহ</h2>
+		<% if @user.get_up_voted Post %>
+			<% (@user.get_up_voted Post).each do |post| %>
+			  <h3><%= image_tag avatar_url(post.user), class: 'profile-picture' %>&nbsp;<%= link_to post.title, post %></h3>
+			  <p>পোস্ট করেছেনঃ <%= link_to post.user.name, post.user %></p>
+			<% end %>
+			<hr />
+		<% end %>
+		<% if @postunpublished %>
+			<h2>আপনার আনপাবলিশড পোস্ট সমূহ</h2>
+			<% @postsunpublished.each do |post| %>
+			  <h3><%= link_to post.title, post %></h3>
+			<% end %>
+			<hr />
+		<% end %>
+	<% end %>
+	<h2><%= @user.name %> এর লিখা পোস্ট সমূহ</h2>
+	<% @postspublished.each do |post| %>
+	  <h3><%= link_to post.title, post %></h3>
+	<% end %>
+</div>

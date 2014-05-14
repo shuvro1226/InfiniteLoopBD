@@ -1,0 +1,33 @@
+<div class="posts-other">
+<% if user_signed_in?  && (current_user.id == 1 || current_user.id == 2 || current_user.id == 3 || current_user.id == 4) %>
+	<h1>Listing categories</h1>
+	
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th></th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @categories.each do |category| %>
+	      <tr>
+	        <td><%= category.name %></td>
+	        <td><%= link_to 'Show Posts', category %></td>
+	        <td><%= link_to 'Edit Name', edit_category_path(category) %></td>
+	        <td><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	
+	<br>
+	
+	<%= link_to 'New Category', new_category_path, class: "button tiny" %>
+<% else %>
+	<h2>You are not authorized to access this page!</h2>
+<% end %>
+</div>

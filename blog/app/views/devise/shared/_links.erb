@@ -1,0 +1,25 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "লগ-ইন", new_session_path(resource_name), class: "button tiny" %><br />
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "রেজিস্ট্রেশন", new_registration_path(resource_name), class: "button tiny" %><br />
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "পাসওয়ার্ড ভুলে গেছেন?", new_password_path(resource_name), class: "button tiny" %><br />
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "নিশ্চিতকরণ ই-মেইল কি পান নি?", new_confirmation_path(resource_name), class: "button tiny" %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "একাউন্ট পুনরায় চালু করার তথ্যাদি পান নি?", new_unlock_path(resource_name), class: "button tiny" %><br />
+<% end -%>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "#{provider.to_s.titleize} দিয়ে লগ-ইন করুন", omniauth_authorize_path(resource_name, provider), class: "button tiny" %><br />
+  <% end -%>
+<% end -%>

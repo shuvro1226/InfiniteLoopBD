@@ -1,0 +1,36 @@
+<div class="row" style="padding-top: 30px;">
+	<div class="small-3 columns">
+		<%= link_to "প্রথম পাতা", root_path %><br /><br />
+		<%= link_to "সকল পোস্ট", posts_path %><br /><br />
+		<%= link_to "আমাদের সম্পর্কে", pages_about_path %><br /><br />
+		<% if user_signed_in? %>
+		<%= link_to current_user.name, current_user %><br /><br />
+		<%= link_to "লগ আউট", destroy_user_session_path, method: :delete %>
+		<% else %>
+		<%= link_to "রেজিস্ট্রেশন", new_user_registration_path %><br /><br />
+		<%= link_to "লগ-ইন", new_user_session_path %>
+		<% end %>
+	</div>
+	<div class="small-4 columns">
+		<p>যোগাযোগ করুন</p>
+		<span class="mobile"><%= image_tag('phone.png', {style: 'width: 30px'}) %>&nbsp;&nbsp;০১৭১৭৭০৫৬২১</span><br /><br />
+		<span class="email"><%= image_tag('mail.png', {style: 'width: 30px'}) %>&nbsp;&nbsp;infiniteloopbd@gmail.com</span>
+	</div>
+	<div class="small-5 columns">
+		<ul class="topmenu">
+	      <li class="fb"><%= link_to "Facebook", "http://www.facebook.com" %></li>		
+		  <li class="tw"><%= link_to "Twitter", "http://www.twitter.com" %></li>
+		  <li class="gg"><%= link_to "Google", "http://www.google.com" %></li>
+		  <li class="in"><%= link_to "Linkedin", "http://www.linkedin.com" %></li>
+		</ul><br /><br /><br />
+		<%= image_tag('infinitloop.png', {style: 'float: right;'}) %>
+	</div>
+</div><br />
+<hr />
+<div class="row">
+	<div class="small-12 columns" style="text-align: center;">
+		Powered By: <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>
+		<%= image_tag('rubyonrails.png', {:style => 'width: 25px'}) %>&nbsp;&nbsp;|&nbsp;&nbsp;
+		Developed By: <%= link_to "মইনুল হাসান", "http://www.linkedin.com/pub/shuvro-hasan/2b/57b/115" %>
+	</div>
+</div><br />

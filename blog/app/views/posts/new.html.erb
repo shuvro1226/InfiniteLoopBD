@@ -1,0 +1,14 @@
+<% title "নতুন পোস্ট" %>
+
+
+<div class="posts-other">
+	<% if user_signed_in?  && current_user.role == 'writer' %>
+			<h2>নতুন পোস্ট</h2>
+			
+			<%= render 'form' %>
+			
+			<%= link_to 'প্রথম পাতা', posts_path, class: "button tiny" %>
+	<% else %>
+		<h2>নতুন পোস্ট লিখবার জন্য আপনাকে অবশ্যই এই ব্লগ এর একজন স্বীকৃত লেখক হতে হবে। যদি আপনি ''ইনফিনিট লুপ' এ লিখতে চান তাহলে আমাদের সাথে যোগাযোগ করুন।</h2>
+	<% end %>
+</div>

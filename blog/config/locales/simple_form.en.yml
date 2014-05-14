@@ -1,0 +1,26 @@
+en:
+  simple_form:
+    "yes": 'হ্যা'
+    "no": 'না'
+    required:
+      text: 'প্রয়োজনীয়'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+     # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "দয়া করে নিচের সমস্যা গুলো দেখুন:"
+    # Labels and hints examples
+    #labels:
+     #  defaults:
+     #    password: 'পাসওয়ার্ড'
+     #  user:
+     #    new:
+     #      email: 'লগ-ইন করবার জন্য ই-মেইল'
+     #    edit:
+     #      email: 'ই-মেইল'
+     #hints:
+     #  defaults:
+     #    username: 'লগ-ইন করবার জন্য ব্যবহারকারীর নাম'
+     #    password: 'শুধুমাত্র নাম্বার অথবা অক্ষর প্রবেশ করও'
+

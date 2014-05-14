@@ -1,0 +1,27 @@
+<% title "রেজিস্ট্রেশন" %>
+
+<div class="posts-other">
+	<h2>রেজিস্ট্রেশন এর জন্য প্রয়োজনীয় তথ্য গুলি প্রবেশ করুন</h2>
+	
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+	
+	  <div><%= f.label :name, "আপনা পূর্ণ নাম" %><br />
+	  <%= f.text_field :name, :autofocus => true %></div>
+	  
+	  <div><%= f.label :username, "ছদ্ম নাম" %><br />
+	  <%= f.text_field :username, :autofocus => true %></div>
+	  
+	  <div><%= f.label :email, "ই-মেইল এড্রেস (Gravatar একাউন্ট থাকলে ওই ই-মেইল এড্রেস টি এখানে প্রবেশ করুন)" %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
+	
+	  <div><%= f.label :password, "পাসওয়ার্ড" %><br />
+	  <%= f.password_field :password %></div>
+	
+	  <div><%= f.label :password_confirmation, "পাসওয়ার্ড টি নিশ্চিত করুন" %><br />
+	  <%= f.password_field :password_confirmation %></div>
+	
+	  <div><%= f.submit "রেজিস্টার" %></div>
+	<% end %>
+	<h4>আপনি কি আগে থেকেই একজন রেজিস্টার্ড ব্যবহারকারী? <%= render "devise/shared/links" %></h4><br><br />
+</div>

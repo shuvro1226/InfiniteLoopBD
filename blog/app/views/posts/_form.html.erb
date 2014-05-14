@@ -1,0 +1,39 @@
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "শিরোনাম" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :category, "বিভাগ" %><br>
+    <%= f.collection_select(:category_id, Category.find(:all), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "পোস্ট এর বিষয়াদি লিখুন" %><br>
+    <%= f.text_area(:body, :class => 'test', :id => 'markdown', rows: 20) %>
+  </div><br>
+  <div class="field">
+    <%= f.label :tag_list, "কমা দিয়ে আলাদা করে ট্যাগ প্রবেশ করান(ট্যাগ ইংরেজি তে প্রবেশ করা বাঞ্ছণীয়)" %><br>
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="field">
+  	<%= f.label :published, "পোস্ট টি সকলের দেখার জন্য পাবলিশ করুন" %>
+  	<%= f.check_box :published %>
+  </div>
+  <div class="actions">
+    <%= f.submit "পোস্ট টি সাবমিট করুন" %>
+  </div>
+<% end %>

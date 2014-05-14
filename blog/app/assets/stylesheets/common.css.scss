@@ -1,0 +1,172 @@
+@import 'foundation';
+
+.custom-label-class {
+  @include label(
+    $padding:16px 16px 16px, $text-size:12px, $bg:#1e8c37
+  );
+}
+
+html
+{
+  height: 100%;
+}
+
+body
+{
+  background: image-url('bg.jpg') no-repeat center center fixed; background-size: cover;
+  -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;
+  height: 100%;
+}
+
+#wrap {min-height: 100%;}
+
+#main {
+  overflow:auto; padding-bottom: 150px;
+}
+
+#footer {
+  position: relative; background:rgba(0,0,0,0.6); margin-top: -150px; 
+  height: auto; clear:both; color: #fff;
+} 
+
+#footer a {
+  color: #fff;
+} 
+
+
+ul.topmenu li.fb, ul.topmenu li.tw, ul.topmenu li.gg, ul.topmenu li.in { text-indent: -9999px; list-style-type: none; display: inline; float: right; margin-right: 20px; }
+ul.topmenu li.fb a, ul.topmenu li.tw a, ul.topmenu li.gg a, ul.topmenu li.in a { width: 45px; height: 45px; display: block; }
+ul.topmenu li.fb a { background: image-url('fb.png') no-repeat; }
+ul.topmenu li.tw a { background: image-url('twitter.png') no-repeat; }
+ul.topmenu li.gg a { background: image-url('google.png') no-repeat; }
+ul.topmenu li.in a { background: image-url('linkedin.png') no-repeat; }
+ul.topmenu li.fb a:hover { background-position: -45px 0; }
+ul.topmenu li.tw a:hover { background-position: -45px 0; }
+ul.topmenu li.gg a:hover { background-position: -45px 0; }
+ul.topmenu li.in a:hover { background-position: -45px 0; }
+
+.profile-picture
+{
+  width: 60px; border: 2px solid #fff;
+}
+
+.test
+{
+  height: auto;
+}   
+
+.top-bar
+{
+  opacity: 0.6;
+} 
+
+.header
+{
+  margin: 20px auto; height: 140px; width: 100%; width: 1000px;
+}
+
+ul.mid
+{
+  width: 200px; margin: 0px auto; display: block;
+}
+
+ul.large-menu
+{
+  list-style-type: none; display: inline; width:1000px;
+}
+
+ul.large-menu li
+{
+  text-indent: -9999px; display: inline; list-style-type: none; float: right; margin-left: 50px;
+}
+
+ul.large-menu li a
+{
+  width:150px; height: 150px; display:block; -webkit-transition:all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+  transition:all 1s ease-in-out;
+}
+
+ul.large-menu li.all a
+{
+  background: image-url('all.png') 0 0 no-repeat; 
+}
+
+ul.large-menu li.all a:hover
+{
+  background-position: -150px 0;
+}
+
+ul.large-menu li.new a
+{
+  background: image-url('new.png') 0 0 no-repeat; 
+}
+
+ul.large-menu li.new a:hover
+{
+  background-position: -150px 0; 
+}
+
+ul.large-menu li.login a
+{
+  background-image: image-url('login.png'); 
+}
+
+ul.large-menu li.login a:hover
+{
+  background-position: -150px 0; 
+}
+
+ul.large-menu li.about a
+{
+  background-image: image-url('about.png'); 
+}
+
+ul.large-menu li.about a:hover
+{
+  background-position: -150px 0; 
+}
+
+ul.large-menu li.home a
+{
+  background-image: image-url('home.png'); 
+}
+
+ul.large-menu li.home a:hover
+{
+  background-position: -150px 0; 
+}
+
+ul.large-menu li.profile a
+{
+  background-image: image-url('profile.png'); 
+}
+
+ul.large-menu li.profile a:hover
+{
+  background-position: -150px 0; 
+}
+
+.posts
+{
+  width: 1000px; height: auto; border-radius: 10px; border-width: 5px; border-color: #111; 
+  background:rgba(255,255,255,0.75); padding:20px; margin-top: -15px; margin-right: auto;
+  margin-left: auto; font-size: 20px; margin-bottom: -15px;
+}
+
+.posts-other
+{
+  width: 1000px; height: auto; border-radius: 10px; border-width: 5px; border-color: #111; font-size: 20px;
+  background:rgba(255,255,255,0.75); padding:20px; margin-right: auto;  margin-left: auto; margin-bottom: -15px;
+}
+
+.site
+{
+  background:rgba(255,34,0,0.75); height: auto; width: 100%; padding: 50px; font-size:24px; color: #fff;
+}
+
+.infinity
+{
+  margin: -20px auto; width: 200px; height: 140px;
+}

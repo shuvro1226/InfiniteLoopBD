@@ -1,0 +1,39 @@
+<% title "প্রোফাইল সম্পাদনা" %>
+
+<div class="posts-other">
+	<h2>আপনার প্রোফাইল টি নতুন তথ্য দিয়ে হাল নাগাদ করুন</h2>
+	
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+	  <%= devise_error_messages! %>
+	
+	  <div><%= f.label :"আপনা পূর্ণ নাম" %><br />
+	  <%= f.text_field :name, :autofocus => true %></div>
+	  
+	  <div><%= f.label :"ছদ্ম নাম" %><br />
+	  <%= f.text_field :username, :autofocus => true %></div>
+	  
+	  <div><%= f.label :email, "ই-মেইল এড্রেস (Gravatar একাউন্ট থাকলে ওই ই-মেইল এড্রেস টি এখানে প্রবেশ করুন)" %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
+	
+	  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+	    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+	  <% end %>
+	
+	  <div><%= f.label :"পাসওয়ার্ড" %><br />
+	  <%= f.password_field :password %></div>
+	
+	  <div><%= f.label :"পাসওয়ার্ড টি নিশ্চিত করুন" %><br />
+	  <%= f.password_field :password_confirmation %></div>
+	
+	  <div><%= f.label :"বর্তমান পাসওয়ার্ড টি প্রবেশ করুন" %> <i>(আপনার পরিবর্তন গুলো সংরক্ষণ এর জন্য আপনার বর্তমান পাসওয়ার্ড টি প্রয়োজন)</i><br />
+	  <%= f.password_field :current_password %></div>
+	
+	  <div><%= f.submit "আপডেট করুন" %></div>
+	<% end %>
+	
+	<h3>একাউন্ট বাতিল</h3>
+	
+	<p>ইনফিনিট লুপ থেকে বের হতে চান? <%= button_to "একাউন্ট টি বাতিল করুন", registration_path(resource_name), :data => { :confirm => "আপনি কি নিশ্চিত?" }, :method => :delete %></p>
+	
+	<%= link_to "ফিরে যান", current_user, class: "button tiny" %>
+</div>

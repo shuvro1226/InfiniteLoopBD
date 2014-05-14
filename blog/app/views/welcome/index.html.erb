@@ -1,0 +1,27 @@
+<div class="site">
+  	<div class="infinity"><%= image_tag 'infinity.png'%></div><br />
+  	<h4 style="color: white;">“ইনফিনিট লুপ বিভিন্ন প্রোগ্রামিং ও ডেভলপমেন্ট ল্যাঙ্গুয়েজ নিয়ে টিউটোরিয়াল ও আলোচনা শীর্ষক একটি ব্লগ। প্রতিদিন শেখা নতুন এবং জরুরী কিছু লিখে রাখার উদ্দেশ্য নিয়ে ব্লগ টি তৈরি করা হয়েছে। সাথেই থাকবেন। সবার কাজে আসে এমন কিছুই রাখার চেষ্টা থাকবে।”</h4>
+</div>
+
+<div class="posts">
+	<h3>ফিচারড পোস্ট</h3>
+	<% @pinnedposts.each do |post| %>
+	  <%= image_tag('pinned.png', {style: 'float:right; margin-top: -120px; margin-right: -20px; width: 75px;'}) %>
+	  <h2><%= image_tag avatar_url(post.user), class: 'profile-picture' %>&nbsp;<%= link_to post.title, post %></h2>
+	  <p>বিভাগঃ <%= link_to post.category.name, category_path(post.category) %>&nbsp;
+	  	লিখেছেনঃ <%= link_to post.user.name, post.user %>
+	  </p>
+	  <p>ট্যাগঃ <%= raw post.tag_list.map{ |t| link_to t, tag_path(t), class: "button tiny" }.join(' ') %></p>
+	<% end %>
+	<hr />
+	<h3>সাম্প্রতিক  পোস্ট</h3>
+	<% @posts.each do |post| %>
+	  <h2><%= image_tag avatar_url(post.user), class: 'profile-picture' %>&nbsp;<%= link_to post.title, post %></h2>
+	  <p>বিভাগঃ <%= link_to post.category.name, category_path(post.category) %>&nbsp;
+	  	লিখেছেনঃ <%= link_to post.user.name, post.user %>
+	  </p>
+	  <p>ট্যাগঃ <%= raw post.tag_list.map{ |t| link_to t, tag_path(t), class: "button tiny" }.join(' ') %></p>
+	  <hr />
+	<% end %>
+	<h4><%= link_to "সব পোস্ট দেখুন", posts_path, :class => 'button expand alert' %></h4>
+</div>

@@ -1,0 +1,47 @@
+.digg_pagination
+  background: white
+  cursor: default
+  a, span, em
+    padding: 0.2em 0.5em
+    display: block
+    float: left
+    margin-right: 1px
+  .disabled
+    color: #999999
+    border: 1px solid #dddddd
+  .current
+    font-style: normal
+    font-weight: bold
+    background: #2284a1
+    color: white
+    border: 1px solid #3ab2d5
+  a
+    text-decoration: none
+    color: #3ab2d5
+    border: 1px solid #3ab2d5
+    &:hover, &:focus
+      color: #ffffff
+      background: #2284a1
+      border-color: #3ab2d5
+  .page_info
+    background: #2284a1
+    color: white
+    padding: 0.4em 0.6em
+    width: 22em
+    margin-bottom: 0.3em
+    text-align: center
+    b
+      color: #000033
+      background: #2284a1 + 60
+      padding: 0.1em 0.25em
+  /* self-clearing method:
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1%
+  *:first-child+html &
+    overflow: hidden

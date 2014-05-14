@@ -1,0 +1,18 @@
+<% title "পাসওয়ার্ড পরিবর্তন" %>
+
+<h2>পাসওয়ার্ড পরিবর্তন</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div><%= f.label :password, "নতুন পাসওয়ার্ড" %><br />
+  <%= f.password_field :password, :autofocus => true %></div>
+
+  <div><%= f.label :password_confirmation, "নতুন পাসওয়ার্ড টি নিশ্চিত করুন" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "পাসওয়ার্ড পরিবর্তন করুন" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

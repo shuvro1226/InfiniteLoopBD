@@ -1,0 +1,46 @@
+<div class="fixed">
+	<nav class="top-bar" data-topbar>
+	  <section class="top-bar-section">
+	    <ul class="right">
+		  <li class="has-dropdown">
+		  	<a href="#"><%= image_tag "options.png", { :style => 'width:40px;' } %></a>
+		  	<ul class="dropdown">
+		  		<% if user_signed_in? %>
+		        	<li><%= link_to current_user.name, current_user %></li>
+		      		<li class="divider"></li>
+					<li><%= link_to "লগ আউট", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+		      		<li class="divider"></li>
+			  	<% else %>
+					<li><%= link_to "রেজিস্ট্রেশন", new_user_registration_path, :class => 'navbar-link'  %></li>
+		      		<li class="divider"></li>
+					<li><%= link_to "লগইন", new_user_session_path, :class => 'navbar-link'  %></li>
+		      		<li class="divider"></li>
+			  	<% end %>
+		  	</ul>
+		  </li>
+	    </ul>	    
+	    <div style="float: right;">
+		<%= form_tag posts_path, :method => :get do %>
+		    <%= text_field_tag :search, params[:search], placeholder: "ইনফিনিট লুপ এ খুঁজুন", style: 'width: 200px;' %>
+		    <div style="margin-top: calc(-14.75%); margin-left: 200px;"><%= submit_tag "খুঁজুন", :name => nil %></div>
+		<% end %>
+		</div>
+	    <ul class="left">
+		  <li class="has-dropdown">
+		  	<a href="#"><%= image_tag "category.png", { :style => 'width:40px;' } %></a>
+		  	<ul class="dropdown">
+		  		<% Category.find(:all).each do |c| %>
+		  			<li><%= link_to c.name, c %></li>
+		      		<li class="divider"></li>
+		  		<% end %>
+		  	</ul>
+		  </li>
+	    </ul>
+	  <ul class="mid">
+	    <li class="name">
+	      <h1><%= link_to image_tag('infinitloop.png', {:style => 'width: 200px;'}), root_path %></a></h1>
+	    </li>
+	  </ul>
+	  </section>
+	</nav>
+</div>

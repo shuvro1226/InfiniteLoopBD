@@ -1,0 +1,25 @@
+<% title "ইনফিনিট লুপ" %>
+
+<div class="site">
+	<% if params[:tag] %>
+	<h4 style="color: white;"><%= params[:tag] %> ট্যাগ এর অন্তর্গত পাবলিশ হওয়া সকল পোস্ট</h4>
+	<% elsif params[:search] %>
+	<h4 style="color: white;">আপনার প্রবেশকৃত সার্চ টার্ম “<%= params[:search] %>” ব্যবহার করে নিচের পোস্ট গুলি পাওয়া গেছে</h4>
+	<% else %>
+  	<h4 style="color: white;">পাবলিশ হওয়া সকল পোস্ট</h4>
+  	<% end %>
+</div>
+
+<div class="posts">
+	<% @posts.each do |post| %>
+	  <h2><%= image_tag avatar_url(post.user), class: 'profile-picture' %>&nbsp;<%= link_to post.title, post %></h2>
+	  <p>বিভাগঃ <%= link_to post.category.name, category_path(post.category) %>&nbsp;&nbsp;
+	  	পোস্ট করেছেনঃ <%= link_to post.user.name, post.user %>	</p>
+	  <p>ট্যাগঃ <%= raw post.tag_list.map{ |t| link_to t, tag_path(t), class: "button tiny" }.join(' ') %></p>
+	  <hr />
+	<% end %>
+	
+	<div class="digg_pagination">
+	    <%= will_paginate @posts, :container => false %>
+	</div>
+</div>

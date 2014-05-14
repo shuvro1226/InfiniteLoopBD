@@ -1,0 +1,12 @@
+<h2>নিশ্চীতকরণ তথ্যাদি আবার পাঠান</h2>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email, "ই-মেইল" %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.submit "পাঠিয়ে দিন" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

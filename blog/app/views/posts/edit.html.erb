@@ -1,0 +1,13 @@
+<% title "পোস্ট সম্পাদন" %>
+<div class="posts-other">
+	<% if user_signed_in? && @post.user == current_user %>
+			<h2>আপনার পোস্ট টি সম্পাদন করে পুনরায় জমা দিন</h2>
+			
+			<%= render 'form' %>
+			
+			<%= link_to 'পোস্ট দেখান', @post, class: "button tiny" %>&nbsp;
+			<%= link_to 'প্রথম পাতা', posts_path, class: "button tiny" %>
+	<% else %>
+		<h2>পোস্ট এডিট এর জন্য আপনাকে অবশ্যই এই ব্লগ এর একজন স্বীকৃত এবং এই পোস্ট টির লেখক হতে হবে। যদি আপনি ''ইনফিনিট লুপ' এ লিখতে চান তাহলে আমাদের সাথে যোগাযোগ করুন।</h2>
+	<% end %>
+</div>

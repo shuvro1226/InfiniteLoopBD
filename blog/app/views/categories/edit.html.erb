@@ -1,0 +1,11 @@
+<div class="posts-other">	
+	<% if user_signed_in?  && (current_user.id == 1 || current_user.id == 2 || current_user.id == 3 || current_user.id == 4) %>
+		<h1>Edit Category</h1>
+	
+		<%= render 'form' %>
+		
+		<%= link_to 'Back', categories_path, class: "button tiny" %>
+	<% else %>
+		<h2>You are not authorized to access this page!</h2>
+	<% end %>
+</div>
